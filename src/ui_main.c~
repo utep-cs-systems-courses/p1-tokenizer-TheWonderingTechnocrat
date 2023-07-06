@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "tokenizer.h"
+
+int main(){
+
+  char a = 'A';
+  
+
+  int test;
+  test= space_char(a);
+
+  printf("This is a test : %d\n",test);
+
+  
+}
