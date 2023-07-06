@@ -11,24 +11,24 @@ int space_char(char c)
 
 int non_space_char(char c)
 {
-  if (space_char(c) != 1)
+  if (space_char(c) !=1)
     return 1;
   else
     return 0;
 }
-char*token_start(char* str)
+char *token_start(char *str)
 {
-  char* us_p;
-  us_p= str;
-  while(*us_p != '\0')
-    {
-      printf("this is not working");
+  char *us_p;
+  us_p=str;
+  
+  if(non_space_char(*us_p)
       us_p++;
-      printf("this is not working2");
+      if(space_char(*us_p)
+	{
+	  return us_p;
+	}
+	
     }
-  printf("this is not working3");
-  return us_p;
-}
     
 char *token_terminator(char token)
 {
