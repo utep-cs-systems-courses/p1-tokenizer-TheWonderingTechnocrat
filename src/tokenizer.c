@@ -16,27 +16,32 @@ int non_space_char(char c)
   else
     return 0;
 }
-char*token_start(char* str)
+char* token_start(char* str)
 {
-  char* us_p;
-  us_p= str;
+  char* us_p = str;
+  // printf("we're testing *us_p: %s\n",us_p);
   while(*us_p != '\0')
     {
-      printf("this is not working");
-      us_p++;
-      printf("this is not working2");
+      if(non_space_char(*us_p)){
+	  return us_p;
+	}
+	us_p++;
     }
-  printf("this is not working3");
-  return us_p;
+  return NULL;
 }
     
-char *token_terminator(char token)
+char *token_terminator(char* token)
 {
-  //  (token_start(*token))
-  //while(*token && non_space_char(token)== 0)
-  // {
-  //    token++;
-  // }
+  char* us_p = token;
+  token_start(( us_p));
+  
+  while(*us_p != '\0')
+    {
+      if(space_char(*us_p)){
+	return us_p;
+      }
+      us_p++;
+    }
   return NULL;
 }
    

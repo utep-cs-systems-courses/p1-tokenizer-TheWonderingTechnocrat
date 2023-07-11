@@ -18,7 +18,7 @@ int non_space_char(char c);
 char *token_start(char *str);
 
 /* Returns a pointer terminator char following *token*/ 
-char *token_terminator(char token);
+char *token_terminator(char* token);
 
     /* Counts the number of tokens in the string argument. */
     int count_tokens(char *str);

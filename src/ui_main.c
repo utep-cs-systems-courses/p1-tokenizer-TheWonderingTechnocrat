@@ -10,15 +10,19 @@ int main(){
   int test;
   test= space_char(a);
   int test2;
-  printf("This is a test : %d\n",test);
+  //printf("This is a test : %d\n",test);
   test2 = non_space_char(a);
-  printf("This is a two : %d\n",test2);
-  char* c = "A";
-  int test3;
-  test3 = *token_start(c);
+  //  printf("This is a two : %d\n",test2);
+  char* c = "  A";
+  char* test3;
+  test3 = token_start(c);
 
-  printf("This is test three: \n",test3);
-  
+  printf("This is test three: %s\n",test3);
+  char* d= " AB";
+  char* test4;
+  test4 = token_terminator(d);
+  printf("This is a test four: %s\n",test4);
+ 
   return 0;
 
   
