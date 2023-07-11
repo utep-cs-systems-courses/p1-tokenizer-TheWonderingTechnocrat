@@ -18,7 +18,7 @@ int main(){
   test3 = token_start(c);
 
   printf("This is test three: %s\n",test3);
-  char* d= " AB";
+  char* d= " AB ";
   char* test4;
   test4 = token_terminator(d);
   printf("This is a test four: %s\n",test4);

@@ -33,7 +33,7 @@ char* token_start(char* str)
 char *token_terminator(char* token)
 {
   char* us_p = token;
-  token_start(( us_p));
+  us_p = token_start(( us_p));
   
   while(*us_p != '\0')
     {
