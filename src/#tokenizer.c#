@@ -63,7 +63,6 @@ int count_tokens(char* str)
       us_p = token_terminator(us_p);
       printf("Currently at: %s\n", us_p);
       count++;
-      
     }
   if (us_p == NULL)
   return count;

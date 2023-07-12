@@ -17,12 +17,18 @@ int main(){
   char* test3;
   test3 = token_start(c);
 
-  printf("This is test three: %s\n",test3);
+  // printf("This is test three: %s\n",test3);
   char* d= " AB ";
   char* test4;
   test4 = token_terminator(d);
-  printf("This is a test four: %s\n",test4);
- 
+  //  printf("This is a test four: %s\n",test4);
+
+  char* e= " This is working";
+  int test5;
+  test5 = count_tokens(e);
+  
+  printf("This is test five: %d\n",test5);
+	 
   return 0;
 
   
