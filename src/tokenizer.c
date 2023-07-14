@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "tokenizer.h"
 
 int space_char(char c)
@@ -50,29 +51,42 @@ int count_tokens(char* str)
   int count;
   count=0;
   char* us_p = str;
-  printf("this is a test before the while:\n");
-  // us_p = token_start(us_p);
+
   
   while (us_p!= NULL)
     {
-      printf("Currently at: %s\n", us_p);
-      printf("this is a test for start:\n");
+      //  printf("Currently at: %s\n", us_p);
+      // printf("this is a test for start:\n");
       us_p = token_start(us_p);
 
-      printf("this is a test for terminator:\n");
+      // printf("this is a test for terminator:\n");
       us_p = token_terminator(us_p);
-      printf("Currently at: %s\n", us_p);
+      // printf("Currently at: %s\n", us_p);
       count++;
       
     }
   if (us_p == NULL)
   return count;
 }
+int get_length(char* str)
+{
+  int count;
+  count=0;
+  char* us_p= str;
 
+  while(*us_p!= '\0')
+    {
+    //printf("test in while:\n");
+      ////
+      count++;
+      us_p++;
+    }
+    return count;
+  
+}
 char *copy_str(char *inStr, short len)
 {
-  char *p = inStr;
-  //p=(malloc (len+1)) *sizeof(char);
+  char *p = (char *) malloc (len+1 *sizeof(char));
   int i;
   for (i=0; i < len; i++)
     {

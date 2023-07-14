@@ -21,9 +21,10 @@ char *token_start(char *str);
 char *token_terminator(char* token);
 
     /* Counts the number of tokens in the string argument. */
-    int count_tokens(char *str);
+int count_tokens(char *str);
      
-
+/* Gets the length ofthe string*/
+int get_length(char *str);
 /* Returns a fresly allocated new zero-terminated string 
    containing <len> chars from <inStr> */
   char *copy_str(char *inStr, short len);

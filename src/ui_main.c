@@ -28,7 +28,16 @@ int main(){
   test5 = count_tokens(e);
   
   printf("This is test five: %d\n",test5);
-	 
+  char* f="This is working";
+  int testhelp;
+  testhelp= get_length(f);
+  printf("This is a test of help: %d\n", testhelp);
+  
+  char* test6;
+  test6 = copy_str( e , 35);
+  
+  printf("This is test six: %s\n",test6);
+    
   return 0;
 
   
