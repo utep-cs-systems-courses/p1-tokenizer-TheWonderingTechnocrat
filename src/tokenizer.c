@@ -12,38 +12,38 @@ int space_char(char c)
 
 int non_space_char(char c)
 {
-  if (space_char(c) != 1 && c != '\0')
-    return 1;
-  else
+  if (c== ' '|| c=='\t' || c == '\0')
     return 0;
+  else
+    return 1;
 }
 char* token_start(char* str)
 {
   char* us_p = str;
-  // printf("we're testing *us_p: %s\n",us_p);
   while(*us_p != '\0')
     {
+      //printf("in while for start\n");
       if(non_space_char(*us_p)){
+	//printf("I found a non space");
 	  return us_p;
 	}
 	us_p++;
     }
-  return NULL;
+  return us_p;
 }
     
 char *token_terminator(char* token)
 {
-  char* us_p = token;
-  //us_p = token_start(us_p);
-  
-  while(*us_p != '\0')
+  char* us_p = token;  
+  while (*us_p!='\0' )
     {
+      //printf("in while for term");
       if(space_char(*us_p)){
-	return us_p;
-      }
+	  return us_p;
+	}
       us_p++;
     }
-  return NULL;
+  return us_p;
 }
    
 int count_tokens(char* str)
@@ -51,21 +51,13 @@ int count_tokens(char* str)
   int count;
   count=0;
   char* us_p = str;
-
   
-  while (us_p!= NULL)
+  while ((us_p != NULL))
     {
-      //  printf("Currently at: %s\n", us_p);
-      // printf("this is a test for start:\n");
-      us_p = token_start(us_p);
-
-      // printf("this is a test for terminator:\n");
+      us_p= token_start(us_p);
       us_p = token_terminator(us_p);
-      // printf("Currently at: %s\n", us_p);
-      count++;
-      
+      count++; 
     }
-  if (us_p == NULL)
   return count;
 }
 int get_length(char* str)
@@ -76,8 +68,6 @@ int get_length(char* str)
 
   while(*us_p!= '\0')
     {
-    //printf("test in while:\n");
-      ////
       count++;
       us_p++;
     }
@@ -86,47 +76,60 @@ int get_length(char* str)
 }
 char *copy_str(char *inStr, short len)
 {
-  char *p = (char *) malloc (len+1 *sizeof(char));
+  char *p =  malloc ((len+1) * sizeof(char));
   int i;
   for (i=0; i < len; i++)
     {
       p[i] = inStr[i];
     }
-  p[len+1] = '\0';
+  p[len] = '\0';
   return p;
 }
 
 char **tokenize(char* str)
 {
-  int i,j;
-  char *p;
+  char *us_p = str;
+  int i;
+  char *p =us_p;
   char *s;
-  int strSize = count_tokens(str);
-  char ** tokens;
-  //tokens = (char**)(malloc(strSize+1))*sizeof(char));
-  
-if(strSize == 0)
+  int numTokens = count_tokens(str);
+  char ** tokens= malloc ((numTokens+1) *sizeof(char*));
+  printf("%s\n" , str);
+  printf("numTokens = %d\n",numTokens);
+if(!numTokens)
     {
-      return '\0';
+      return NULL;
     }
-  for (i= 0; i < (strSize); i++)
+ for(i=0; i< numTokens; i++)
     {
-      s = token_start(str);
-      //p = token_terminator(str);
-      //token[i] =+ copy_str(s,s-p);
+      printf("Iteration #%d\n", i);
+      us_p = token_start(p);
+      printf("start\n");
+      p = token_terminator(us_p);
+      printf("terminate\n");
+      s = copy_str(us_p,p-us_p);
+      printf("%s\n", s);
+      tokens[i] = copy_str(us_p,p-us_p);
+      //printf("tokens: %s'\n'",i,*tokens[i]);
+      //printf("End of iteration #%s\nValue:", i, *tokens[i]);
+      us_p++;
     }
-  tokens[i] = (char*)NULL;
+  tokens[i] = NULL;
+  //print_tokens(tokens);
   return tokens;
 }
 
 void print_tokens(char **tokens)
 {
-  char ** useful_copy;
-  useful_copy = tokens;
+  char ** useful_copy= tokens;
+  if(tokens == NULL){
+    printf("Tokens array is null!: %s'\n'");
+    return;
+  }
 
-  while (useful_copy != NULL)
+  while (*useful_copy != NULL)
     {
-      printf("the tokens are :\n", *useful_copy);
+      printf("the tokens are :%s\n", *useful_copy);
 	useful_copy++;
     }
 }
