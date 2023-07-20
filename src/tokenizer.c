@@ -38,10 +38,10 @@ char *token_terminator(char* token)
   while (*us_p!='\0' )
     {
       //printf("in while for term");
-      if(space_char(*us_p)){
-	  return us_p;
-	}
+      //if(space_char(*us_p)){
+      //  return us_p;
       us_p++;
+  
     }
   return us_p;
 }
