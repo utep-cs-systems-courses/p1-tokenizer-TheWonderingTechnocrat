@@ -22,9 +22,9 @@ char* token_start(char* str)
   char* us_p = str;
   while(*us_p != '\0')
     {
-      //printf("in while for start\n");
+      
       if(non_space_char(*us_p)){
-	//printf("I found a non space");
+	
 	  return us_p;
 	}
 	us_p++;
@@ -97,10 +97,12 @@ char **tokenize(char* str)
   char ** tokens= malloc ((numTokens+1) *sizeof(char*));
   printf("%s\n" , str);
   printf("numTokens = %d\n",numTokens);
+  /*
 if(!numTokens)
     {
       return NULL;
     }
+  */
  for(i=0; i< numTokens; i++)
     {
       printf("Iteration #%d\n", i);
@@ -112,8 +114,7 @@ if(!numTokens)
       printf("%s\n", s);
       tokens[i] = copy_str(us_p,p-us_p);
       //printf("tokens: %s'\n'",i,*tokens[i]);
-      //printf("End of iteration #%s\nValue:", i, *tokens[i]);
-      us_p++;
+      //printf("End of iteration %s\n:", *tokens[i]);
     }
   tokens[i] = NULL;
   //print_tokens(tokens);
