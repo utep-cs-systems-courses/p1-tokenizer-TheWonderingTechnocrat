@@ -4,27 +4,15 @@
 
 int main(){
   
-  char a = 'A';
-  char b ='\t';
-
-  int test;
-  //test= space_char(a);
-  int test2;
-  // printf("This is a test,return 0 : %d\n",test);
-  // test2 = non_space_char(a);
-  // printf("This is a two, return 1 : %d\n",test2);
-  // char* c = "  A";
-  //char* test3;
-  //test3 = token_start(c);
-
-  //printf("This is test three, should return A: %s\n",test3);
-  // printf("finished start:");
-  char* d= " AB";
-  char* test4;
-  //printf("this here : %s\n");
-  test4 = token_terminator(d);
-  printf("This is a test four, should return : %s\n",test4);
+  char *test1= "this";
+  int testcount;
+  int testlength;
+  testcount=count_tokens(test1);
+  testlength=gtlength(test1);
+  printf("This is count: %d\n",testcount);
+  printf("This is length: %d\n",testlength);
   
-  return 0;  
+
+  return 0;
 }
 

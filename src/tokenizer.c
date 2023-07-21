@@ -37,9 +37,10 @@ char *token_terminator(char* token)
   char* us_p = token;  
   while (*us_p!='\0' )
     {
-      //printf("in while for term");
-      //if(space_char(*us_p)){
-      //  return us_p;
+     
+      if(space_char(*us_p)){
+	return us_p;
+    }
       us_p++;
   
     }
@@ -52,7 +53,7 @@ int count_tokens(char* str)
   count=0;
   char* us_p = str;
   
-  while ((us_p != NULL))
+  while ((*us_p !='\0'))
     {
       us_p= token_start(us_p);
       us_p = token_terminator(us_p);
@@ -60,7 +61,7 @@ int count_tokens(char* str)
     }
   return count;
 }
-int get_length(char* str)
+int gtlength(char* str)
 {
   int count;
   count=0;
