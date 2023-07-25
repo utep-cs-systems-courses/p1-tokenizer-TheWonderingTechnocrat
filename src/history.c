@@ -2,12 +2,101 @@
 #include <stdlib.h>
 #include "history.h"
 
-List* init_history();
+List* init_history(){
+  List*historyList= (List*) malloc( sizeof(List));
+  if(historyList ==NULL){
+    printf("mem errorin history: \n");
+    return NULL;
+  }
+  historyList->root= NULL;
+  
+  return historyList;
+}
 
-void add_history(List *list, char *str);
+int getlengthagain(char* str){
+  int len =0;
+  while(str[len] != '\0'){
+    len++;
+  }
+  return len;
+}
 
-char *get_history(List *list, int id);
 
-void print_history(List *list);
+  
+void add_history(List *list, char *str){
+
+  char* usefulcpy;
+  usefulcpy=str;
+
+  Item* itemHistory = (Item*) malloc(sizeof(Item));
+
+  if(itemHistory == NULL){
+    printf("mem error in add: \n");
+    return;
+  }
+  itemHistory ->id = 0;
+  int len= getlengthagain(str);
+  
+  itemHistory ->str= (char*) malloc((len+1) * sizeof(char));
+
+  if(itemHistory->str== NULL){
+    printf("mem error in str:\n");
+    free(itemHistory);
+    return;
+  }
+
+  for(int i=0; i< len; i++){
+    itemHistory->str[i]= str[i];
+  }
+  
+  itemHistory->str[len]= '\0';
+  itemHistory->next= NULL;
+  
+  if(list->root= NULL){
+    list->root= itemHistory;
+  }else{
+    Item* current= list->root;
+    while(current->next!= NULL){
+      current= current-> next;
+    }
+
+    current->next= itemHistory;
+  }
+
+}
+
+  
+
+char *get_history(List *list, int id){
+
+  Item* current= list->root;
+  while(current!= NULL){
+    if(current->id= id){
+      return current-> str;
+    }
+    current= current-> next;
+  }
+  return NULL;
+}
+    
+  
+
+void print_history(List *list){
+
+  Item* current= list->root;
+  while(current!= NULL){
+    printf("Items with id %d: %s\n",current-> id, current->str);
+    current= current-> next;
+  }
+}
+
+
+
+
+
+
+
+
+
 
 void free_history(List *list);
