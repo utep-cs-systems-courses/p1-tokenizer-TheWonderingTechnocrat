@@ -25,11 +25,26 @@ int main(){
   printf("Please enter the string: \n");
   fgets(string1,20,stdin);
   printf("The string is :%s\n",string1);
+
+  char string2[20];
+  printf("Please enter another string: \n");
+  fgets(string2,20,stdin);
+  printf("The string is :%s\n",string2);
+
+  char string3[20];
+  printf("Please enter another string again:\n");
+  fgets(string3,20,stdin);
+  printf("The string is :%s\n",string3);
+
+  char* testhistory;
   
   List* historyList= init_history();
   add_history(historyList,string1);
+  add_history(historyList,string2);
+  add_history(historyList,string3);
   print_history(historyList);
-
+  testhistory*=(historyList,0);
+  printf("testhistory:%s",testhistory);
   return 0;
 }
 

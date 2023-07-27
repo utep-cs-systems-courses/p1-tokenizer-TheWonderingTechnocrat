@@ -50,12 +50,10 @@ void add_history(List *list, char *str){
   }
   
   for(int i=0; i< len-1; i++){
-    printf("this is for loop in add:\n");
+    // printf("this is for loop in add:\n");
     itemHistory->str[i]= str[i];
-    printf("this is after the forloop:\n");
+    // printf("this is after the forloop:\n");
   }
-  
-
   
   itemHistory->str[len]= '\0';
 
@@ -66,16 +64,20 @@ void add_history(List *list, char *str){
   itemHistory->next= NULL;
   
   if(list->root== NULL){
-    printf("ifsta inadd");
+    // printf("ifsta inadd");
     list->root= itemHistory;
   }else{
     Item* current= list->root;
     while(current->next!= NULL){
-      printf("this is the while in add:\n");
+      // printf("this is the while in add:\n");
       current= current-> next;
     }
 
     current->next= itemHistory;
+    int idup=0;
+    itemHistory->id = idup+1; 
+    
+      
   }
 
 }
