@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tokenizer.h"
+#include "history.h"
 
 int main(){
   
@@ -14,13 +15,20 @@ int main(){
   char* rts;
   rts=copy_str(test1,testlength);
   printf("copied string: %s\n",rts);
-  char **hate;
-  hate=tokenize(test1);
-  printf("this token: %s\n",hate);
+  char **work;
+  work=tokenize(test1);
+  printf("this token: %s\n",work);
 
+  print_tokens(work);
 
-
+  char string1[20];
+  printf("Please enter the string: \n");
+  fgets(string1,20,stdin);
+  printf("The string is :%s\n",string1);
   
+  List* historyList= init_history();
+  add_history(historyList,string1);
+  print_history(historyList);
 
   return 0;
 }
