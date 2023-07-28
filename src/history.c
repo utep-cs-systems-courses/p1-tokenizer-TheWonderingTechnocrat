@@ -57,9 +57,6 @@ void add_history(List *list, char *str){
   
   itemHistory->str[len]= '\0';
 
-  //char*p= copy_str(str,len);
-
-  //itemHistory ->p;
   
   itemHistory->next= NULL;
   
@@ -83,15 +80,22 @@ void add_history(List *list, char *str){
 }
 
 char *get_history(List *list, int id){
-
+  printf("inget_history \n");
+  char* text="not in history";
+  char* text2= "nothing there";
   Item* current= list->root;
+  if(current== NULL){
+    return text2;
+  }
   while(current!= NULL){
+    printf("in while history \n");
     if(current->id== id){
+      printf("in for history \n");
       return current-> str;
     }
     current= current-> next;
   }
-  return NULL;
+  return text;
 }
     
 void print_history(List *list){
