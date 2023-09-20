@@ -38,7 +38,11 @@ void add_history(List *list, char *str){
     printf("mem error in add: \n");
     return;
   }
-  itemHistory ->id = 0;
+
+  static int count= 0;
+  itemHistory -> id= count++;
+
+  
   int len= getlengthagain(str);
   
   itemHistory ->str= (char*) malloc((len+1) * sizeof(char));
@@ -71,10 +75,7 @@ void add_history(List *list, char *str){
     }
 
     current->next= itemHistory;
-    int idup=0;
-    itemHistory->id = idup+1; 
-    
-      
+     
   }
 
 }
@@ -91,6 +92,7 @@ char *get_history(List *list, int id){
     printf("in while history \n");
     if(current->id== id){
       printf("in for history \n");
+      //return text;
       return current-> str;
     }
     current= current-> next;
@@ -105,7 +107,23 @@ void print_history(List *list){
     printf("Items with id %d: %s\n",current-> id, current->str);
     current= current-> next;
   }
+  return;
 }
 
 
-void free_history(List *list);
+void free_history(List *list){
+  
+  Item* current= list->root;
+  while(current!= NULL){
+    Item* temp = current;
+    current= current-> next;
+      free(temp->str);
+      free(temp);
+  }
+  free(list);
+}
+
+
+
+
+  

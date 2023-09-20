@@ -136,14 +136,17 @@ void print_tokens(char **tokens)
     }
 }
 
-void free_tokens(char ** tokens)
-{
-  while (tokens != NULL)
-    {
-      //free(tokens);
-      tokens++;
-    }
-}
+void free_tokens(char ** tokens){
+  
+  if(tokens == NULL){
+    return;
+  }
+  for(int i=0; tokens[i]!=NULL; i++){
 
+    free(tokens[i]);
+  }
+    
+  free(tokens);
+}
 
   

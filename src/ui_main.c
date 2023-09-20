@@ -43,8 +43,10 @@ int main(){
   add_history(historyList,string2);
   add_history(historyList,string3);
   print_history(historyList);
-  testhistory= get_history(historyList,0);
-  printf("testhistory:%s",testhistory);
+  testhistory= get_history(historyList,2);
+  printf("testhistory %s \n",testhistory);
+
+  printf("Im Done\n");
   return 0;
 }
 
