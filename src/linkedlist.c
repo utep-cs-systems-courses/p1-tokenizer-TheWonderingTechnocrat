@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stlib.h>
 #include <string.h>
-//#inculde LinkedList.h
+#inculde "linkedlist.h"
 
 typedef struct Node{
   char* data;
