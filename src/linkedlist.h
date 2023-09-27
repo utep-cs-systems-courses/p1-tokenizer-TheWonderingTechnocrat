@@ -13,8 +13,8 @@ typedef struct LinkedList{
 Node* createNode(char* data);
 void append(LinkedList* list,char* data);
 void display(LinkedList* list);
-Node* search(LinkedList* list, char data);
-void freelist(LiskedList* list);
+Node* search(LinkedList* list, char* data);
+void freelist(LinkedList* list);
 
 #endif
   

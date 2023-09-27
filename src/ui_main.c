@@ -21,7 +21,7 @@ int main(){
   printf("this token: %s\n",work);
 
   print_tokens(work);
-
+  /*
   char string1[20];
   printf("Please enter the string: \n");
   fgets(string1,20,stdin);
@@ -48,6 +48,18 @@ int main(){
   printf("testhistory %s \n",testhistory);
 
   printf("Im Done\n");
+  */
+  LinkedList list= {NULL};
+
+  append(&list, "hello");
+  append(&list, "world");
+
+  printf("LinkedList : ");
+  display(&list);
+  printf("\n");
+
+
+  
   return 0;
 }
 

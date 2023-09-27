@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include <stlib.h>
+#include <stdlib.h>
 #include <string.h>
-#inculde "linkedlist.h"
-
+#include "linkedlist.h"
+/*
 typedef struct Node{
   char* data;
   struct Node* next;
@@ -11,20 +11,20 @@ typedef struct Node{
 typedef struct LinkedList{
   Node* head;
 }LinkedList;
-
+*/
 Node* createNode(char* data){
   Node* newNode = (Node*)malloc (sizeof(Node));
   if(newNode == NULL){
     printf("error in mem alloc");
-    exit();
+    exit(EXIT_FAILURE);
   }
   newNode-> data = strdup(data);
   newNode-> next = NULL;
   return newNode;
+}
   
-  
-  void append(LinkedList* list, char data){
-    Node* newNode = createdNode(data);
+  void append(LinkedList* list, char* data){
+    Node* newNode = createNode(data);
     if(list-> head == NULL){
       list->head= newNode;
       return;
@@ -49,13 +49,14 @@ Node* createNode(char* data){
   Node* search(LinkedList* list, char* data){
     Node* current = list->head;
     while(current != NULL){
-      if(strcmp(current->data,data) = 0)
+      if(strcmp(current->data,data) == 0)
 	return current;
       current= current->next;
     }
     return NULL; //data wasn't in the list
-
-   void freeList(Linkedist* list){
+  }
+  
+   void freeList(LinkedList* list){
      Node* current = list-> head;
      Node* next;
      while(current != NULL){
