@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tokenizer.h"
+#include "linkedlist.h"
+
+LinkedList list= {NULL};
 
 int space_char(char c)
 {
@@ -121,6 +124,7 @@ if(!numTokens)
   return tokens;
 }
 
+
 void print_tokens(char **tokens)
 {
   char ** useful_copy= tokens;
@@ -132,6 +136,22 @@ void print_tokens(char **tokens)
   while (*useful_copy != NULL)
     {
       printf("the tokens are :%s\n", *useful_copy);
+	useful_copy++;
+    }
+}
+
+  
+void rtn_tokens(char **tokens)
+{
+  char ** useful_copy= tokens;
+  if(tokens == NULL){
+    printf("Tokens array is null!: %s'\n'");
+    return;
+  }
+
+  while (*useful_copy != NULL)
+    {
+      append(&list,*useful_copy);
 	useful_copy++;
     }
 }
