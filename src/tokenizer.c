@@ -3,7 +3,7 @@
 #include "tokenizer.h"
 #include "linkedlist.h"
 
-LinkedList list= {NULL};
+//LinkedList list= {NULL};
 
 int space_char(char c)
 {
@@ -141,7 +141,7 @@ void print_tokens(char **tokens)
 }
 
   
-void rtn_tokens(char **tokens)
+void rtn_tokens(LinkedList list,char **tokens)
 {
   char ** useful_copy= tokens;
   if(tokens == NULL){
@@ -151,7 +151,9 @@ void rtn_tokens(char **tokens)
 
   while (*useful_copy != NULL)
     {
+      //printf(*useful_copy);
       append(&list,*useful_copy);
+      //display(&list);
 	useful_copy++;
     }
 }

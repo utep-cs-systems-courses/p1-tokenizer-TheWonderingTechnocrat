@@ -1,5 +1,6 @@
 #ifndef _TOKENIZER_
 #define _TOKENIZER_
+#include "linkedlist.h"
 
 
 /* Return true (non-zero) if c is a whitespace characer
@@ -44,7 +45,7 @@ char *copy_str(char *inStr, short len);
 void print_tokens(char **tokens);
 
 /* append token */
-void rtn_tokens(char **token);
+void rtn_tokens(LinkedList list,char **token);
 
 /* Frees all tokens and the vector containing themx. */
 void free_tokens(char **tokens);

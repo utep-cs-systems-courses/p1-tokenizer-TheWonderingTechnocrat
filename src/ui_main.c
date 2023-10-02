@@ -54,7 +54,8 @@ int main(){
   append(&list, "hello");
   append(&list, "world");
   append(&list,"this is a test");
-  rtn_tokens(work);
+  rtn_tokens(list,work);
+  append(&list,"hello will");
 
   printf("LinkedList : ");
   display(&list);
