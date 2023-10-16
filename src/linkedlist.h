@@ -14,7 +14,8 @@ Node* createNode(char* data);
 void append(LinkedList* list,char* data);
 void display(LinkedList* list);
 Node* search(LinkedList* list, char* data);
-void freelist(LinkedList* list);
+void freeList(LinkedList* list);
+void searchinHistory(LinkedList* list);
 
 #endif
   

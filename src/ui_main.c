@@ -4,6 +4,12 @@
 #include "history.h"
 #include "linkedlist.h"
 
+
+
+
+
+
+
 int main(){
   
   char *test1= "this is";
@@ -60,9 +66,44 @@ int main(){
   printf("LinkedList : ");
   display(&list);
   printf("\n");
-
-
   
+  char choice;
+
+  while(1){
+    printf("\nMenu:\n");
+    printf("I -input your words\n");
+    printf("H -display your history\n");
+    printf("S -search your history\n");
+    printf("Q -Quit\n");
+    scanf(" %c",&choice);
+
+    switch(choice){
+      case'I':
+
+	break;
+
+      case'H':
+	printf("Your history of Linkedlist\n");
+	display(&list);
+       break;
+
+      case'S':
+	searchinHistory(&list);
+	break;
+
+      case'Q':
+        printf("You are quiting the program, Goodbye\n");
+	freeList(&list);
+	break;
+
+    default:
+      printf("Invalid choice, Please again again \n");
+      break;
+	
+    }
+  }
+
+ 
   return 0;
 }
 

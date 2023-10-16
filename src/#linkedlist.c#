@@ -56,29 +56,29 @@ Node* createNode(char* data){
     return NULL; //data wasn't in the list
   }
   
-   void freeList(LinkedList* list){
-     Node* current = list-> head;
-     Node* next;
-     while(current != NULL){
-       next= current-> next;
-       free(current->data);
-       free(current);
-       current = next;
-     }
-     list-> head= NULL;
-   }
-void searchinHistory(LinkedList* list){
-  char word[100];
-  printf("please enter the word you are looking for\n");
-  scanf("%s",word);
+  void freeList(LinkedList* list){
+    Node* current = list-> head;
+    Node* next;
+    while(current != NULL){
+      next= current-> next;
+      free(current->data);
+      free(current);
+      current = next;
+    }
+    list-> head= NULL;
+  }
+ void searchinHistory(LinkedList* list){
+   char word[100];
+   printf("please enter the word you are looking for\n");
+   scanf("%s",word);
 
-  Node* resultNode = search(list,word);
+   Node* resultNode = search(list,word);
 
-  if(resultNode != NULL)
-    printf(" '%s' the word was in found in the Linkedlist!\n",word);
-  else
-    printf(" '%s' sorry the word is not in the Linkedlist!\n", word);
-}
+   if(resultNode != NULL)
+     printf(" '%s' the word was in found in the Linkedlist!\n",word);
+   else
+     printf(" '%s' sorry the word is not in the Linkedlist!\n", word);
+ }
 
   
 
